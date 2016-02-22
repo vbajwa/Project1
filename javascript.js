@@ -4,7 +4,7 @@ var suits   = ["Clubs", "Diamonds", "Hearts", "Spades"];
 
 var game = {
   deck: [],
-  player: null,
+  player: "John",
   hands: [],
   playerDeck: [],
   computerDeck: [],
@@ -45,8 +45,15 @@ var game = {
 
   buildHands: function(){
       var computerDeck = this.deck.slice(0,52);
-      var playerDeal = computerDeck.splice(0, 25);
-        game.playerDeck.push(playerDeal);
-        console.log(buildHands);
+      var playerDeal = computerDeck.slice(0, 26);
+      var computerDeal = computerDeck.slice(26,52);
+        this.playerDeck.push(playerDeal);
+        this.computerDeck.push(computerDeal);
+        console.log(this.playerDeck);
+        console.log(this.computerDeck);
   },
 };
+
+game.buildDeck();
+game.shuffleDeck();
+game.buildHands();
