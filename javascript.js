@@ -4,11 +4,16 @@ var suits   = ["Clubs", "Diamonds", "Hearts", "Spades"];
 
 var game = {
   deck: [],
-  players: [Player, Computer],
+  player: null,
   hands: [],
   playerDeck: [],
-  computerDeck: []
+  computerDeck: [],
 
+  getPlayer: function(){
+    var userInput = prompt("Enter your name.");
+    this.player = userInput;
+    console.log("welcome " + this.player);
+  },
 
   buildDeck: function(){
     values.forEach(function(cardValue){
@@ -40,17 +45,8 @@ var game = {
 
   buildHands: function(){
       var computerDeck = this.deck.slice(0,52);
-      var playerDeal = this.deck.splice(0, 25);
+      var playerDeal = computerDeck.splice(0, 25);
         game.playerDeck.push(playerDeal);
         console.log(buildHands);
-  }
-
-
-
-
-
-
-
-
-
-}//close var game
+  },
+};
