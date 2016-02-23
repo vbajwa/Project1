@@ -53,24 +53,25 @@ var game = {
 
 //push an object into 'hands', object must contain player name and cards. object is name: player, cards: [] in hands
 
-  play: function(){
-    var playerPopped = this.playerDeck.pop();
-    var computerPopped = this.computerDeck.pop();
+    play: function(){
+      var playerPopped = this.playerDeck.pop();
+      var computerPopped = this.computerDeck.pop();
 
-        if (playerPopped > computerPopped){
-          console.log("Player wins");
-          console.log(playerPopped);
-          console.log(computerPopped);
-          game.playerDeck.push(playerPopped, computerPopped);
-        } else {
-          console.log("Computer wins");
-          console.log(playerPopped);
-          console.log(computerPopped);
-          game.playerDeck.push(playerPopped, computerPopped);
-          }
-    console.log(this.computerDeck);
-    console.log(this.playerDeck);
+          if (playerPopped > computerPopped){
+            console.log("Player wins");
+            console.log(playerPopped);
+            console.log(computerPopped);
+            game.playerDeck.push(playerPopped, computerPopped);
 
+          } else {
+            console.log("Computer wins");
+            console.log(playerPopped);
+            console.log(computerPopped);
+            game.playerDeck.push(playerPopped, computerPopped);
+            }
+      console.log(this.computerDeck.length);
+      console.log(this.playerDeck.length);
+      // display who won, and show the cards as an alert maybe
 
     }
 
@@ -81,4 +82,7 @@ var game = {
 game.buildDeck();
 game.shuffleDeck();
 game.buildHands();
-game.play();
+do{
+  game.play();
+}
+while(game.playerDeck.length>0 && game.computerDeck.length>0);
