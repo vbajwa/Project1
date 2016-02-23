@@ -1,6 +1,7 @@
 var values  = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
 var suits   = ["Clubs", "Diamonds", "Hearts", "Spades"];
-
+var playerPopped = [];
+var computerPopped = [];
 
 var game = {
   deck: [],
@@ -9,11 +10,8 @@ var game = {
   playerDeck: [],
   computerDeck: [],
 
-  getPlayer: function(){
-    var userInput = prompt("Enter your name.");
-    this.player = userInput;
-    console.log("welcome " + this.player);
-  },
+
+
 
   buildDeck: function(){
     values.forEach(function(cardValue){
@@ -46,13 +44,41 @@ var game = {
   buildHands: function(){
       var playerDeal = this.deck.slice(0, 26);
       var computerDeal = this.deck.slice(26,52);
-        this.playerDeck.push(playerDeal);
-        this.computerDeck.push(computerDeal);
+        this.playerDeck = playerDeal;
+        this.computerDeck = computerDeal;
         console.log(this.playerDeck);
         console.log(this.computerDeck);
   },
-};
+
+
+//push an object into 'hands', object must contain player name and cards. object is name: player, cards: [] in hands
+
+  play: function(){
+    var playerPopped = this.playerDeck.pop();
+    var computerPopped = this.computerDeck.pop();
+
+        if (playerPopped > computerPopped){
+          console.log("Player wins");
+          console.log(playerPopped);
+          console.log(computerPopped);
+          game.playerDeck.push(playerPopped, computerPopped);
+        } else {
+          console.log("Computer wins");
+          console.log(playerPopped);
+          console.log(computerPopped);
+          game.playerDeck.push(playerPopped, computerPopped);
+          }
+    console.log(this.computerDeck);
+    console.log(this.playerDeck);
+
+
+    }
+
+
+  };
+
 
 game.buildDeck();
 game.shuffleDeck();
 game.buildHands();
+game.play();
