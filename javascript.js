@@ -49,8 +49,6 @@ var game = {
     console.log("Computer Deal " + computerDeal.length);
     this.playerDeck = playerDeal;
     this.computerDeck = computerDeal;
-    console.log(this.playerDeck);
-    console.log(this.computerDeck);
   },
 
   play: function(){
@@ -58,21 +56,21 @@ var game = {
     var computerPopped = this.computerDeck.pop();
     if (playerPopped.worth > computerPopped.worth){
       showMe("Player wins");
-      console.log(playerPopped);
-      console.log(computerPopped);
+      console.log("Player wins with ", playerPopped);
+      console.log("Computer loses with ", computerPopped);
       game.playerDeck.unshift(playerPopped);
       game.playerDeck.unshift(computerPopped);
-      console.log(this.playerDeck.length);
-      console.log(this.computerDeck.length);
 
     }
     else if(playerPopped.worth == computerPopped.worth){
       console.log("its a tie!");
+      alert("It's a tie! This is real war, the game is over. Now have a real fight");
+      return;
       //eventually play war here//
     }
 
 
-     else {
+    else {
       showMe("Computer wins");
       console.log(playerPopped);
       console.log(computerPopped);
@@ -82,7 +80,7 @@ var game = {
       console.log("player loses with", playerPopped);
 
     }
-}
+  }
 };
 
 game.buildDeck();
@@ -91,21 +89,18 @@ game.buildHands();
 
 var button= document.querySelector("button");
 button.addEventListener("click", function() {
-  for (var i = 0; i <100000; i++){
-
 
   if(game.playerDeck.length === 0 || game.computerDeck.length === 0){
     console.log("game over");
     return;
 
-}
+  }
   else {
     game.play();
   }
-}
-console.log("done");
+  console.log("done");
+  alert("Game Over");
 });
-
 
 
 function showMe(message){
