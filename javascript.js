@@ -3,8 +3,6 @@ var suits   = ["Clubs", "Diamonds", "Hearts", "Spades"];
 var playerPopped = [];
 var computerPopped = [];
 
-
-
 var game = {
   deck: [],
   player: [],
@@ -45,17 +43,21 @@ var game = {
     var playerDeal = this.deck.slice(0, this.deck.length / 2);
     var computerDeal = this.deck.slice(this.deck.length / 2,this.deck.length);
 
-    console.log("Player Deal " + playerDeal.length);
-    console.log("Computer Deal " + computerDeal.length);
+    //console.log("Player Deal " + playerDeal.length);
+    //console.log("Computer Deal " + computerDeal.length);
     this.playerDeck = playerDeal;
     this.computerDeck = computerDeal;
   },
 
   play: function(){
+
     var playerPopped = this.playerDeck.pop();
     var computerPopped = this.computerDeck.pop();
     if (playerPopped.worth > computerPopped.worth){
       showMe("Player wins");
+      showPW(playerPopped);
+      showCL(computerPopped);
+      //this is where the function for innerHTML will go.
       console.log("Player wins with ", playerPopped);
       console.log("Computer loses with ", computerPopped);
       game.playerDeck.unshift(playerPopped);
@@ -72,6 +74,8 @@ var game = {
 
     else {
       showMe("Computer wins");
+      showCW(computerPopped);
+      showPL(playerPopped);
       console.log(playerPopped);
       console.log(computerPopped);
       game.computerDeck.unshift(computerPopped);
@@ -89,22 +93,47 @@ game.buildHands();
 
 var button= document.querySelector("button");
 button.addEventListener("click", function() {
-
   if(game.playerDeck.length === 0 || game.computerDeck.length === 0){
     console.log("game over");
     return;
-
   }
   else {
     game.play();
+
   }
   console.log("done");
-  
 });
 
-
 function showMe(message){
-  var div = document.getElementById('message');
-  div.textContent= message;
-  div.style.color= "red";
+  var thisIs = document.getElementById('message');
+  thisIs.textContent= message;
+  thisIs.style.color= "red";
+}
+function showCW(card){
+  var butt = document.querySelector(".computerHand");
+  var hole = document.createElement('p');
+  butt.appendChild(hole);
+  hole.innerText =  card.value + " of " + card.suit;
+
+}
+
+function showCL(card){
+  var dong = document.querySelector(".computerHand");
+  var face = document.createElement('p');
+  dong.appendChild(face);
+  face.innerText = card.value + " of " + card.suit;
+}
+
+function showPW(card){
+  var anus = document.querySelector(".playerHand");
+  var chasm =  document.createElement('p');
+  anus.appendChild(chasm);
+  chasm.innerText = card.value + " of" + card.suit;
+}
+
+function showPL(card){
+  var vag = document.querySelector(".playerHand");
+  var sauce = document.createElement('p');
+  vag.appendChild(sauce);
+  sauce.innerText = card.value + " of " + card.suit;
 }
