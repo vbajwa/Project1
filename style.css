@@ -24,9 +24,19 @@
   color: blue;
 }
 
-div p{
-  text-align:center;
-  font-family: Arial, sans-serif;
-  font-size: 150%;
-  color: red;
+.playhand{
+  border-style: dashed;
+  text-align: right;
+  float:right;
+
+}
+.comphand{
+  float:left;
+  border-style: dashed;
+  text-align: left;
+  font-family: helvetica, sans-serif;
+  font-size: 250%;
+  width: 300px;
+
+
 }

@@ -116,7 +116,7 @@ function showCW(card){
   var butt = document.querySelector(".computerHand");
   var hole = document.createElement('p');
   if(butt.childNodes.length > 1){
-    butt.removeChild(butt.childNodes[1]);
+    butt.removeChild(butt.childNodes[0]);
   }
   butt.appendChild(hole);
   hole.innerText =  card.value + " of " + card.suit;
@@ -127,7 +127,7 @@ function showCL(card){
   var dong = document.querySelector(".computerHand");
   var face = document.createElement('p');
   if(dong.childNodes.length>1){
-    dong.removeChild(dong.childNodes[1]);
+    dong.removeChild(dong.childNodes[0]);
   }
   dong.appendChild(face);
   face.innerText = card.value + " of " + card.suit;
@@ -137,7 +137,7 @@ function showPW(card){
   var anus = document.querySelector(".playerHand");
   var chasm =  document.createElement('p');
   if(anus.childNodes.length>1){
-    anus.removeChild(anus.childNodes[1]);
+    anus.removeChild(anus.childNodes[0]);
   }
   anus.appendChild(chasm);
   chasm.innerText = card.value + " of" + card.suit;
@@ -147,7 +147,7 @@ function showPL(card){
   var vag = document.querySelector(".playerHand");
   var sauce = document.createElement('p');
   if(vag.childNodes.length>1){
-    vag.removeChild(vag.childNodes[1]);
+    vag.removeChild(vag.childNodes[0]);
   }
   vag.appendChild(sauce);
   sauce.innerText = card.value + " of " + card.suit;
