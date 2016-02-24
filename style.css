@@ -1,9 +1,32 @@
-div{
+.playerHand{
   border-style: groove;
   border-width: 5px;
   height: 400px;
   width: 300px;
   border-color: black;
+  float:right;
+
+}
+
+.computerHand{
+  border-style:dotted;
+  border-width:5px;
+  height:400px;
+  width:300px;
+  border-color:green;
+  float:left;
+}
+
+.war_button{
   text-align: center;
-  
+  font-family: Arial, sans-serif;
+  font-size: 250%;
+  color: blue;
+}
+
+div p{
+  text-align:center;
+  font-family: Arial, sans-serif;
+  font-size: 150%;
+  color: red;
 }

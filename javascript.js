@@ -99,7 +99,7 @@ button.addEventListener("click", function() {
     game.play();
   }
   console.log("done");
-  alert("Game Over");
+  
 });
 
 
