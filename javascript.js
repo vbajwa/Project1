@@ -10,7 +10,7 @@ var game = {
   playerDeck: [],
   computerDeck: [],
 
-
+//builds the deck
   buildDeck: function(){
     values.forEach(function(cardValue){
       var cardWorth =  values.indexOf(cardValue);
@@ -27,6 +27,7 @@ var game = {
     });
   }, //close build deck
 
+//shuffles the deck
   shuffleDeck: function(){
     game.deck.sort(function(){
       var randomValue = Math.random();
@@ -38,7 +39,7 @@ var game = {
       }
     });
   },
-
+//separates the shuffled deck int wo.
   buildHands: function(){
     var playerDeal = this.deck.slice(0, this.deck.length / 2);
     var computerDeal = this.deck.slice(this.deck.length / 2,this.deck.length);
@@ -53,6 +54,8 @@ var game = {
 
     var playerPopped = this.playerDeck.pop();
     var computerPopped = this.computerDeck.pop();
+
+
     if (playerPopped.worth > computerPopped.worth){
       showMe("Player wins");
       showPW(playerPopped);
@@ -62,6 +65,7 @@ var game = {
       console.log("Computer loses with ", computerPopped);
       game.playerDeck.unshift(playerPopped);
       game.playerDeck.unshift(computerPopped);
+
 
     }
     else if(playerPopped.worth == computerPopped.worth){
@@ -99,9 +103,8 @@ button.addEventListener("click", function() {
   }
   else {
     game.play();
-
+    console.log("done");
   }
-  console.log("done");
 });
 
 function showMe(message){
@@ -112,6 +115,9 @@ function showMe(message){
 function showCW(card){
   var butt = document.querySelector(".computerHand");
   var hole = document.createElement('p');
+  if(butt.childNodes.length > 1){
+    butt.removeChild(butt.childNodes[1]);
+  }
   butt.appendChild(hole);
   hole.innerText =  card.value + " of " + card.suit;
 
@@ -120,6 +126,9 @@ function showCW(card){
 function showCL(card){
   var dong = document.querySelector(".computerHand");
   var face = document.createElement('p');
+  if(dong.childNodes.length>1){
+    dong.removeChild(dong.childNodes[1]);
+  }
   dong.appendChild(face);
   face.innerText = card.value + " of " + card.suit;
 }
@@ -127,6 +136,9 @@ function showCL(card){
 function showPW(card){
   var anus = document.querySelector(".playerHand");
   var chasm =  document.createElement('p');
+  if(anus.childNodes.length>1){
+    anus.removeChild(anus.childNodes[1]);
+  }
   anus.appendChild(chasm);
   chasm.innerText = card.value + " of" + card.suit;
 }
@@ -134,6 +146,9 @@ function showPW(card){
 function showPL(card){
   var vag = document.querySelector(".playerHand");
   var sauce = document.createElement('p');
+  if(vag.childNodes.length>1){
+    vag.removeChild(vag.childNodes[1]);
+  }
   vag.appendChild(sauce);
   sauce.innerText = card.value + " of " + card.suit;
 }
