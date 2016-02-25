@@ -107,6 +107,15 @@ button.addEventListener("click", function() {
   }
 });
 
+//***This will be a button that shows you how many cards each player has:**//
+
+//var button1= document.querySelector("button1");
+//button.addEventListener("click", console.log(game.playerDeck.length));
+//button.addEventListener("click", console.log(game.computerDeck.length));
+//button.addEventListener("onclick", alert("you have " + game.playerDeck.length + "cards"))
+
+
+
 function showMe(message){
   var thisIs = document.getElementById('message');
   thisIs.textContent= message;
