@@ -1,20 +1,29 @@
+body {
+    background-color: lightblue;
+}
+
+
 .playerHand{
   border-style: groove;
   border-width: 5px;
   height: 400px;
   width: 300px;
   border-color: black;
+  border-radius: 25px;
   float:right;
+  font-size: 200%;
 
 }
 
 .computerHand{
-  border-style:dotted;
+  border-style:groove;;
   border-width:5px;
   height:400px;
   width:300px;
-  border-color:green;
+  border-color:black;
+  border-radius: 25px;
   float:left;
+  font-size:200%;
 }
 
 .war_button{
@@ -25,14 +34,14 @@
 }
 
 .playhand{
-  border-style: dashed;
   text-align: right;
-  float:right;
+  font-family: helvetica, sans-serif;
+  font-size: 250%;
+
+
 
 }
 .comphand{
-  float:left;
-  border-style: dashed;
   text-align: left;
   font-family: helvetica, sans-serif;
   font-size: 250%;
